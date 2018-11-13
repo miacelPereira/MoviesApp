@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="25dp">
 
-    >
-    <ImageView
-        android:layout_width="130dp"
-        android:layout_height="200dp"
-        android:src="@drawable/vida"
-        />
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical"
-        android:padding="8dp"
+        android:layout_height="match_parent"
+        android:padding="25dp"
+        app:cardCornerRadius="8dp"
         >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:gravity="center"
-        android:text="A vida é bela"
-        android:textSize="18dp"
-        android:id="@+id/txtTitulo"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="31/05/1999"
-        android:gravity="center"
-        android:textSize="11dp"
-        android:textColor="#b2b2b2"
-        android:id="@+id/txtData"
-        />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:text="Durante a Segunda Guerra Mundial na Itália, o judeu Guido (Roberto Benigni) e seu filho Giosué são levados para um campo de concentração nazista. Afastado da mulher…"
-            android:textSize="15dp"
-            android:gravity="center"
-            />
-    </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="130dp"
+                android:layout_height="170dp"
+                android:src="@drawable/vida"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="A vida é bela"
+                android:textSize="18dp"
+                android:id="@+id/txtTitulo"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:text="McLovin da Silva"
+                android:gravity="center"
+                android:textSize="11dp"
+                android:textColor="#b2b2b2"
+                android:id="@+id/txtData"
+                />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>
