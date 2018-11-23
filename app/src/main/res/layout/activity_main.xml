@@ -10,34 +10,39 @@
     <!-- Cabeçalho -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="43dp"
+        android:layout_height="73dp"
         android:background="@color/colorLogo">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="70dp"
             android:background="@color/colorFundo"
             android:padding="8dp"
             android:gravity="center"
             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@drawable/logo"
                 android:layout_gravity="center"
                 android:id="@+id/imgLogo"
-                />
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:background="@color/colorBranco"
-                android:layout_gravity="center"
-                android:id="@+id/txtBusca"
                 android:visibility="visible"
                 />
+            <EditText
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:background="@drawable/border"
+                android:layout_gravity="center"
+                android:hint="título"
+                android:id="@+id/txtBusca"
+                android:visibility="gone"
+
+                />
+            </LinearLayout>
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
@@ -46,7 +51,6 @@
                 />
         </LinearLayout>
     </LinearLayout>
-
 
     <!-- ListView -->
     <ListView
