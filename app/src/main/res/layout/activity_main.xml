@@ -33,11 +33,11 @@
                 android:visibility="visible"
                 />
             <EditText
-                android:layout_width="250dp"
+                android:layout_width="350dp"
                 android:layout_height="30dp"
                 android:background="@drawable/border"
                 android:layout_gravity="center"
-                android:hint="título"
+                android:hint="Pesquisa"
                 android:id="@+id/txtBusca"
                 android:visibility="gone"
 
@@ -51,14 +51,6 @@
                 />
         </LinearLayout>
     </LinearLayout>
-
-    <!-- ListView -->
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lstFilmes">
-    </ListView>
-
     <!-- MENU -->
     <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -73,7 +65,15 @@
             app:itemIconTint="@color/colorFundo"
             app:menu="@menu/drawermenu"
             android:layout_gravity="start">
-
         </android.support.design.widget.NavigationView>
+        <!-- ListView -->
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lstFilmes">
+        </ListView>
     </android.support.v4.widget.DrawerLayout>
+
+
+
 </LinearLayout>

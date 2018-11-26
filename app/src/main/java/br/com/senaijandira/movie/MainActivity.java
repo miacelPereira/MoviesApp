@@ -1,9 +1,8 @@
 package br.com.senaijandira.movie;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -25,7 +24,8 @@ public class MainActivity extends AppCompatActivity implements MovieView {
     ListView listView;
     MovieAdapter adapter;
     MoviePresenter presenter;
-    MovieView view;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements MovieView {
 
         listView = findViewById(R.id.lstFilmes);
         adapter = new MovieAdapter(this);
+
+
         listView.setAdapter(adapter);
 
         txtBusca = findViewById(R.id.txtBusca);
@@ -42,9 +44,9 @@ public class MainActivity extends AppCompatActivity implements MovieView {
         cont = 0;
 
         //configurando o presenter
-        presenter = new MoviePresenter(ServiceFactory.create());
+        presenter = new MoviePresenter(ServiceFactory.create(), this);
 
-        presenter.getMovies(view);
+        presenter.getMovies();
     }
 
     public void abrirEdittext(View view) {
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements MovieView {
 
     @Override
     public void preencher(List<Movie> movies) {
-        adapter.clear();
+        //adapter.clear();
         adapter.addAll(movies);
     }
 }
