@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menuAcao"  android:title="Ação" android:icon="@drawable/acao" />
-    <item android:id="@+id/menuAnimacao" android:title="Animação" android:icon="@drawable/animacao" />
-    <item android:id="@+id/menuComedia" android:title="Comédia" android:icon="@drawable/comedia" />
-    <item android:id="@+id/menuDocumentario" android:title="Documentário" android:icon="@drawable/documentario" />
-    <item android:id="@+id/menuDrama" android:title="Drama" android:icon="@drawable/drama" />
-    <item android:id="@+id/menuFaroeste" android:title="Faroeste" android:icon="@drawable/faroeste" />
-    <item android:id="@+id/menuFiccao" android:title="Ficção científica" android:icon="@drawable/ficcao" />
-    <item android:id="@+id/menuGuerra" android:title="Guerra" android:icon="@drawable/guerra" />
-    <item android:id="@+id/menuRomance" android:title="Romance" android:icon="@drawable/romance" />
-    <item android:id="@+id/menuTerror" android:title="Terror" android:icon="@drawable/terror" />
-    <item android:id="@+id/menuThriller" android:title="Thriller" android:icon="@drawable/thriller" />
+    <group>
+        <item android:id="@+id/menuAcao"  android:title="Ação" android:icon="@drawable/acao" />
+        <item android:id="@+id/menuAnimacao" android:title="Animação" android:icon="@drawable/animacao" />
+        <item android:id="@+id/menuComedia" android:title="Comédia" android:icon="@drawable/comedia" />
+        <item android:id="@+id/menuDocumentario" android:title="Documentário" android:icon="@drawable/documentario" />
+        <item android:id="@+id/menuDrama" android:title="Drama" android:icon="@drawable/drama" />
+        <item android:id="@+id/menuFaroeste" android:title="Faroeste" android:icon="@drawable/faroeste" />
+        <item android:id="@+id/menuFiccao" android:title="Ficção científica" android:icon="@drawable/ficcao" />
+        <item android:id="@+id/menuGuerra" android:title="Guerra" android:icon="@drawable/guerra" />
+        <item android:id="@+id/menuRomance" android:title="Romance" android:icon="@drawable/romance" />
+        <item android:id="@+id/menuTerror" android:title="Terror" android:icon="@drawable/terror" />
+        <item android:id="@+id/menuThriller" android:title="Thriller" android:icon="@drawable/thriller" />
+    </group>
 </menu>

@@ -20,18 +20,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import java.util.List;
 
 import br.com.senaijandira.movie.adapter.MovieAdapter;
 import br.com.senaijandira.movie.model.Movie;
+import br.com.senaijandira.movie.presenter.GenrePresenter;
 import br.com.senaijandira.movie.presenter.MoviePresenter;
 import br.com.senaijandira.movie.services.ServiceFactory;
 import br.com.senaijandira.movie.view.MovieView;
 
-public class MainActivity extends AppCompatActivity implements MovieView,
-        AdapterView.OnItemClickListener,
-        NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements MovieView, AdapterView.OnItemClickListener, NavigationView.OnNavigationItemSelectedListener{
 
     EditText txtBusca;
     ImageView imgLogo;
@@ -40,9 +40,6 @@ public class MainActivity extends AppCompatActivity implements MovieView,
     ListView listView;
     MovieAdapter adapter;
     MoviePresenter presenter;
-
-    DrawerLayout drawerMenu;
-    NavigationView navigationView;
 
 
     @Override
@@ -62,13 +59,10 @@ public class MainActivity extends AppCompatActivity implements MovieView,
         txtBusca = findViewById(R.id.txtBusca);
         imgLogo = findViewById(R.id.imgLogo);
 
-        /* *************** MENU ************* */
-        drawerMenu = (DrawerLayout) findViewById(R.id.drawerMenu);
-        navigationView = (NavigationView) findViewById(R.id.navView);
+        // Menu
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navView);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-        /* ********************************** */
 
         cont = 0;
 
@@ -78,6 +72,12 @@ public class MainActivity extends AppCompatActivity implements MovieView,
         presenter.getMovies();
 
 
+    }
+
+    @Override
+    public void preencher(List<Movie> movies) {
+        adapter.clear();
+        adapter.addAll(movies);
     }
 
     public void abrirEdittext(View view) {
@@ -95,14 +95,6 @@ public class MainActivity extends AppCompatActivity implements MovieView,
     }
 
     @Override
-    public void preencher(List<Movie> movies) {
-        //adapter.clear();
-        adapter.addAll(movies);
-    }
-
-
-/// MENU
-     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         //selecionando filme através do clique
 
@@ -115,7 +107,6 @@ public class MainActivity extends AppCompatActivity implements MovieView,
          startActivity(intent);
     }
 
-
     View.OnClickListener item = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -123,25 +114,52 @@ public class MainActivity extends AppCompatActivity implements MovieView,
         }
     };
 
+    //Menu
     public void openMovieByGenre(int id){
-     System.out.print(id);
+        GenrePresenter genrePresenter = new GenrePresenter(ServiceFactory.create(), this);
+        genrePresenter.getMoviesByGenre(id);
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menuAcao: {
-                Toast.makeText(this, "Menu 1", Toast.LENGTH_SHORT).show();
-                break;
-            }
-
-            default: {
-                Toast.makeText(this, "Menu Default", Toast.LENGTH_SHORT).show();
-                break;
-            }
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
-        drawerMenu.closeDrawer(GravityCompat.START);
+    }
 
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menuAcao) {
+            openMovieByGenre(28);
+        } else if (id == R.id.menuAnimacao) {
+            openMovieByGenre(16);
+        } else if (id == R.id.menuComedia) {
+            openMovieByGenre(35);
+        } else if (id == R.id.menuDocumentario) {
+            openMovieByGenre(99);
+        } else if (id == R.id.menuDrama) {
+            openMovieByGenre(18);
+        } else if (id == R.id.menuFaroeste) {
+            openMovieByGenre(37);
+        } else if (id == R.id.menuFiccao) {
+            openMovieByGenre(878);
+        } else if (id == R.id.menuGuerra) {
+            openMovieByGenre(10752);
+        } else if (id == R.id.menuRomance) {
+            openMovieByGenre(10749);
+        } else if (id == R.id.menuTerror) {
+            openMovieByGenre(27);
+        } else if (id == R.id.menuThriller) {
+            openMovieByGenre(53);
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }

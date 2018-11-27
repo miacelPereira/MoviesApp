@@ -29,7 +29,6 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        System.out.println("teste adapter");
         View v = convertView;
 
         if(v == null) {
@@ -47,12 +46,6 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
         //usando a lib glide para loading de imagens
         Glide.with(v).load(MovieService.IMAGE_URL_BASE + movie.getPosterPath())
                 .apply(RequestOptions.placeholderOf(R.color.colorPrimary)).into(imageView);
-
-        Log.d("TESTE", "fUNCIONOU");
-       // txtTitle.setText(movie.getTitle());
-       // txtData.setText(movie.getReleaseDate());
-
-
         return v;
     }
 }
