@@ -4,7 +4,8 @@
     android:orientation="horizontal"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="25dp">
+    android:padding="25dp"
+    >
 
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -25,7 +26,7 @@
                 android:layout_height="180dp"
                 android:src="@drawable/vida"
                 android:background="@drawable/border_image"
-
+                android:id="@+id/imgMovie"
                 />
         </LinearLayout>
     </android.support.v7.widget.CardView>

@@ -8,11 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
 import br.com.senaijandira.movie.R;
 import br.com.senaijandira.movie.model.Movie;
+import br.com.senaijandira.movie.services.MovieService;
 
 public class MovieAdapter extends ArrayAdapter<Movie> {
 
@@ -37,6 +42,12 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
        // TextView txtTitle = v.findViewById(R.id.txtTitulo);
 
        // TextView txtData = v.findViewById(R.id.txtData);
+        ImageView imageView = v.findViewById(R.id.imgMovie);
+
+        //usando a lib glide para loading de imagens
+        Glide.with(v).load(MovieService.IMAGE_URL_BASE + movie.getPosterPath())
+                .apply(RequestOptions.placeholderOf(R.color.colorPrimary)).into(imageView);
+
         Log.d("TESTE", "fUNCIONOU");
        // txtTitle.setText(movie.getTitle());
        // txtData.setText(movie.getReleaseDate());

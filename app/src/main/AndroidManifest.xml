@@ -19,6 +19,9 @@
         </activity>
 
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".VisualizarActivity"></activity>
+
+
     </application>
 
 </manifest>
