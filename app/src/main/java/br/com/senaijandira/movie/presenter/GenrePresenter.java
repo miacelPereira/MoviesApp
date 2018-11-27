@@ -7,23 +7,23 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MoviePresenter {
+public class GenrePresenter {
 
     private MovieService service;
-    private MovieView  movieView;
-
-
+    private MovieView movieView;
 
     //construtor
-    public MoviePresenter(MovieService service, MovieView view) {
+    public GenrePresenter(MovieService service, MovieView view) {
         this.movieView = view;
         this.service = service;
     }
 
     //método para retornar movies
-    public void getMovies(){
-         service.getNowPlayingMovies("8dd702446c98959288bf81386e153c8c",
-                MovieService.LANG).enqueue(new Callback<MovieResult>() {
+    public void getMoviesByGenre(int id){
+       Call<MovieResult> call =  service.getMoviesByGenre("8dd702446c98959288bf81386e153c8c",
+                MovieService.LANG, id);
+
+       call.enqueue(new Callback<MovieResult>() {
             @Override
             public void onResponse(Call<MovieResult> call, Response<MovieResult> response) {
                 if(response.isSuccessful()) {
@@ -33,8 +33,9 @@ public class MoviePresenter {
             }
             @Override
             public void onFailure(Call<MovieResult> call, Throwable t) {
-                    t.getLocalizedMessage();
+                t.getLocalizedMessage();
             }
         });
     }
 }
+
