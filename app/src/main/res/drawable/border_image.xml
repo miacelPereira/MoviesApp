@@ -3,7 +3,7 @@
         <shape android:shape="rectangle">
             <solid android:color="#fff"/> <!-- cor do sólido -->
             <corners android:radius="300dp"/> <!-- valor do arredondamento das bordas -->
-            <stroke android:color="@color/colorLogo" android:width="2dp"/> <!-- cor da borda e tamanho dela -->
+            <stroke android:color="@color/colorBranco" android:width="2dp"/> <!-- cor da borda e tamanho dela -->
         </shape>
     </item>
 </selector>

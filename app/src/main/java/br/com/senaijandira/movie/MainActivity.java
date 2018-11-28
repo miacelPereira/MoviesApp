@@ -26,6 +26,7 @@ import java.util.List;
 
 import br.com.senaijandira.movie.adapter.MovieAdapter;
 import br.com.senaijandira.movie.model.Movie;
+import br.com.senaijandira.movie.presenter.FindPresenter;
 import br.com.senaijandira.movie.presenter.GenrePresenter;
 import br.com.senaijandira.movie.presenter.MoviePresenter;
 import br.com.senaijandira.movie.services.ServiceFactory;
@@ -88,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements MovieView, Adapte
             txtBusca.setVisibility(view.VISIBLE);
             cont++;
         }else{
+            FindPresenter find = new FindPresenter(ServiceFactory.create(), this);
+            find.getMoviesByName(txtBusca.getText().toString());
             imgLogo.setVisibility(view.VISIBLE);
             txtBusca.setVisibility(view.GONE);
             cont = 0;

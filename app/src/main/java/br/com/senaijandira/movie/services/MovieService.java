@@ -43,4 +43,13 @@ public interface MovieService {
             @Query("language") String language,
             @Query("with_genres") int id
     );
+
+    //endpoint onde virá filmes pelo gênero
+    @GET("search/movie/")
+    Call<MovieResult> getMoviesByName(
+
+            @Query("api_key") String apiKey,
+            @Query("language") String language,
+            @Query("query") String name
+    );
 }
