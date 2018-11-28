@@ -1,78 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBranco"
-    >
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/colorFundo"
-        android:padding="8dp"
         android:gravity="center"
-        >
+        android:padding="8dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:gravity="center">
+
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/logo"
-                android:layout_gravity="center"
                 android:id="@+id/imgLogo"
-                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="35dp"
+                android:layout_weight="1"
+                android:src="@drawable/logo"
+
+                android:visibility="visible">
+
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:onClick="fechar"
+                android:src="@drawable/close"
+
+
                 />
         </LinearLayout>
     </LinearLayout>
 
     <ImageView
-        android:layout_width="180dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
         android:id="@+id/imgFilm"
-        />
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp" />
     <!-- Titulo do filme-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
         android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+
         >
 
 
         <TextView
+            android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtTitle"
-            android:textSize="25sp"
-            />
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:textSize="22sp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <!-- Avaliação do filme-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="15dp"
-        >
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Avaliação: "
-            android:textSize="25sp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtRating"
-            android:textSize="25sp"
-            />
+            android:textSize="22sp" />
+        <!-- incluindo progress bar-->
+        <include layout="@layout/progress_bar"></include>
 
     </LinearLayout>
 
@@ -80,33 +90,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="15dp"
-        >
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lançamento: "
-            android:textSize="25sp"
-            />
+            android:textSize="22sp" />
+
         <TextView
+            android:id="@+id/txtDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtDate"
-            android:textSize="25sp"
-            />
+            android:textSize="20sp" />
 
     </LinearLayout>
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Ok"
+        android:text="+Sinopse"
+        android:layout_marginTop="25dp"
         android:textSize="18sp"
-        android:onClick="fechar"
-        />
+        android:id="@+id/btn_overview"
+        android:background="@color/colorLogo"
+        android:textColor="@color/colorBranco"
 
+        />
 
 </LinearLayout>

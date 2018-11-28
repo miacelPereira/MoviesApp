@@ -24,6 +24,10 @@ public class Movie {
     @Expose
     private String releaseDate;
 
+    @SerializedName("overview")
+    @Expose
+    private String overview;
+
     @SerializedName("vote_average")
     @Expose
     private float rating;
@@ -79,5 +83,13 @@ public class Movie {
 
     public void setGenreIds(List<Integer> genreIds) {
         this.genreIds = genreIds;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 }
