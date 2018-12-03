@@ -3,12 +3,12 @@ package br.com.senaijandira.movie.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import br.com.senaijandira.movie.R;
 import br.com.senaijandira.movie.model.Movie;
 import br.com.senaijandira.movie.services.MovieService;
+import br.com.senaijandira.movie.utils.DateUtil;
 
 public class MovieAdapter extends ArrayAdapter<Movie> {
 
@@ -38,14 +39,24 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
 
         Movie movie = getItem(position);
 
-       // TextView txtTitle = v.findViewById(R.id.txtTitulo);
+        TextView txtTitleMovie = v.findViewById(R.id.txtTitleMovie);
 
-       // TextView txtData = v.findViewById(R.id.txtData);
+        TextView txtTitleMovieOrigin = v.findViewById(R.id.txtTitleMovieOrigin);
+
+        TextView txtDateMovieNumb = v.findViewById(R.id.txtDateMovieNumb);
+
+        TextView popularityNumb = v.findViewById(R.id.popularityNumb);
+
         ImageView imageView = v.findViewById(R.id.imgMovie);
 
         //usando a lib glide para loading de imagens
         Glide.with(v).load(MovieService.IMAGE_URL_BASE + movie.getPosterPath())
-                .apply(RequestOptions.placeholderOf(R.color.colorPrimary)).into(imageView);
+                .apply(RequestOptions.placeholderOf(R.drawable.claquete)).into(imageView);
+
+        txtTitleMovie.setText(movie.getTitle());
+        txtTitleMovieOrigin.setText(movie.getOriginalTitle());
+        txtDateMovieNumb.setText(DateUtil.convertToBrFormat(movie.getReleaseDate()));
+        popularityNumb.setText(movie.getPopularity()+"");
         return v;
     }
 }

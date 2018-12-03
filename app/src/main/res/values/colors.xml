@@ -6,4 +6,5 @@
     <color name="colorLogo">#01D277 </color>
     <color name="colorFundo">#081c24</color>
     <color name="colorBranco">#FFFFFF</color>
+    <color name="colorCinza">#e8e8e8</color>
 </resources>

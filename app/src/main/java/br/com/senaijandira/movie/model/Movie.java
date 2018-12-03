@@ -16,6 +16,10 @@ public class Movie {
     @Expose
     private String title;
 
+    @SerializedName("original_title")
+    @Expose
+    private String originalTitle;
+
     @SerializedName("poster_path")
     @Expose
     private String posterPath;
@@ -31,6 +35,10 @@ public class Movie {
     @SerializedName("vote_average")
     @Expose
     private float rating;
+
+    @SerializedName("popularity")
+    @Expose
+    private float popularity;
 
     @SerializedName("genre_ids")
     @Expose
@@ -92,4 +100,21 @@ public class Movie {
     public void setOverview(String overview) {
         this.overview = overview;
     }
+
+    public float getPopularity() {
+        return popularity;
+    }
+
+    public void setPopularity(float popularity) {
+        this.popularity = popularity;
+    }
+
+    public String getOriginalTitle() {
+        return originalTitle;
+    }
+
+    public void setOriginalTitle(String originalTitle) {
+        this.originalTitle = originalTitle;
+    }
+
 }
