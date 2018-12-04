@@ -1,26 +1,18 @@
 package br.com.senaijandira.movie;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.menu.MenuView;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
-import android.support.v7.widget.Toolbar;
 
 import java.util.List;
 
@@ -34,14 +26,20 @@ import br.com.senaijandira.movie.view.MovieView;
 
 public class MainActivity extends AppCompatActivity implements MovieView, AdapterView.OnItemClickListener, NavigationView.OnNavigationItemSelectedListener{
 
+    // essa class representa a MainActivity, ou seja, representa o conteúdo que será visualizado pelo usuário
+    // por motivo de recursividade, essa MainActivity é a página que mostra os últimos lançamentos e também os filmes por gênero, assim economizando várias activity
+    // usamos o método MVP nesse projeto, assim toda a busca na API está em outros arquivos
+
+    // esses objetos são do próprio android e que usamos no arquivo activity_main.xml, para assim conseguir manipular eles
     EditText txtBusca;
     ImageView imgLogo;
-    int cont;
+    int cont; // váriavel de controle na abertura da barra de pesquisa
 
     ListView listView;
     MovieAdapter adapter;
     MoviePresenter presenter;
-
+    DrawerLayout drawer;
+    ImageView imagemMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,16 +52,25 @@ public class MainActivity extends AppCompatActivity implements MovieView, Adapte
 
         listView.setAdapter(adapter);
 
-        //setando onclick no listview para visualizar id do filme
+        // setando onclick no listview para visualizar id do filme
         listView.setOnItemClickListener(this);
 
         txtBusca = findViewById(R.id.txtBusca);
         imgLogo = findViewById(R.id.imgLogo);
 
-        // Menu
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
+        // drawerLayout e navigationView é usado para o menu lateral que temos no app
+        imagemMenu = findViewById(R.id.imagemMenu);
+        drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.navView);
         navigationView.setNavigationItemSelectedListener(this);
+
+        imagemMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!drawer.isDrawerOpen(GravityCompat.START)) drawer.openDrawer(Gravity.START);
+                else drawer.closeDrawer(Gravity.START);
+            }
+        });
 
         cont = 0;
 
@@ -165,4 +172,6 @@ public class MainActivity extends AppCompatActivity implements MovieView, Adapte
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
