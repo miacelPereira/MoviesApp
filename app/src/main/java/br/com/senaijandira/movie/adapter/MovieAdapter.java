@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import br.com.senaijandira.movie.R;
 import br.com.senaijandira.movie.model.Movie;
 import br.com.senaijandira.movie.services.MovieService;
-import br.com.senaijandira.movie.utils.DateUtil;
 
 public class MovieAdapter extends ArrayAdapter<Movie> {
 
@@ -43,8 +42,6 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
 
         TextView txtTitleMovieOrigin = v.findViewById(R.id.txtTitleMovieOrigin);
 
-        TextView txtDateMovieNumb = v.findViewById(R.id.txtDateMovieNumb);
-
         TextView popularityNumb = v.findViewById(R.id.popularityNumb);
 
         ImageView imageView = v.findViewById(R.id.imgMovie);
@@ -55,7 +52,6 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
 
         txtTitleMovie.setText(movie.getTitle());
         txtTitleMovieOrigin.setText(movie.getOriginalTitle());
-        txtDateMovieNumb.setText(DateUtil.convertToBrFormat(movie.getReleaseDate()));
         popularityNumb.setText(movie.getPopularity()+"");
         return v;
     }

@@ -31,6 +31,7 @@
                 android:src="@drawable/vida"
                 android:background="@drawable/border_image"
                 android:id="@+id/imgMovie"
+                android:layout_gravity="center_vertical"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,28 +70,6 @@
                         android:text="206.65"
                         android:paddingLeft="8dp"
                         android:textSize="17sp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtDateMovie"
-                        android:text="Lançamento:"
-                        android:textSize="17sp"
-                        android:paddingTop="5dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtDateMovieNumb"
-                        android:text="20/05/1987"
-                        android:textSize="17sp"
-                        android:paddingTop="5dp"
-                        android:paddingLeft="5dp"
                         />
                 </LinearLayout>
             </LinearLayout>
